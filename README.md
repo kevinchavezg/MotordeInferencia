@@ -2,6 +2,22 @@
 
 ## Explicación de motor de inferencia
 
+
+Función: `consultar()`
+
+La función de consultar realiza la iteración de la lista de preguntas y las muestra en terminal para capturar la respuesta en la lista de base de hechos.
+Finaliza haciendo el llamado de la función de inferir. 
+
+Función: `inferir(base_conocimiento, hechos)`
+
+La función de inferir, muestra el resumen de los sintomas (hechos) obtenidos de las preguntas, hace un llamado de la funcion "equiparar" devolviendo el ID del diagnostico posible, y realiza la impresion a terminal. 
+
+Función: `equiparar(base_conocimiento, hechos)`
+
+La función equiparar, realiza la validación de las condiciones de la base de hechos, y retorna el id de la donde los sintomas concuerden.
+
+![Prueba modelo de Inferencia](./media/image2.png)
+
 ## Justificación de desafios implementados
 
 **Nivel 1**
@@ -45,3 +61,47 @@ Preguntas añadidas:
 En base a las reglas añadidas se realizan las pruebas manuales para evaluar el correcto funcionamiento de las mismas
 
 ![Prueba reglas](./media/image.png)
+
+___
+
+<!-- Lista ordenada -->
+1. ¿Cuál es la diferencia principal entre un sistema experto y un programa de software tradicional?
+
+*Como software tradicional sigue un flujo en cascada tradicional a diferencia del sistema experto el cual separa la logica de la ejecucion en este caso las reglas, preguntas simulando el razonamiento con el motor de inferencia*
+
+2. ¿Por qué se dice que los sistemas expertos tienen conocimiento separado de su motor de razonamiento? ¿Cuál es la ventaja de esto?
+
+*Porque la base de conocimiento esta separada del codigo de motor de inferencia dando la ventaja que sea mas practico el mantenimiento (añadir, modificar o eliminar) la base de conocimiento sin afectar el motor.*
+
+3. ¿Qué es la base de hechos y en qué se diferencia de la base de conocimiento?
+
+*La base de hechos es la lista de las respuestas afirmativas obtenidas, la diferencia es que los hechos son los "sintomas" en este caso y la base de conocimiento son los "diagnosticos o problemas" conocidos.*
+
+4. ¿Qué significa que un sistema experto pueda "explicar su razonamiento"? ¿Por qué esto es importante en medicina o derecho?
+
+*Que se puede mostrar el paso a paso del proceso realizado para llegar a la conclusión, extrapolandolo a medicina o derecho son profesiones metodicas las cuales deben de poderse evidenciar los pasos realizados que validen sus diagnosticos o respaldo legal*
+
+5. ¿Por qué fracasaron comercialmente los sistemas expertos en los años 90? Menciona al menos 3 razones.
+
+*Se necesitaban ingenieros con un conocimiento que resultaba muy costoso de mantener, la capacidad de adaptacion de los nuevos datos y era muy sensible con los cambios leves de información dando fallos*
+
+6. Dada la siguiente regla: SI (fiebre AND tos) OR perdida_olfato ENTONCES sospecha_covid y los hechos: {fiebre=True, tos=False, perdida_olfato=True} — ¿Se activa la regla? ¿Por qué?
+
+*Si porque aunque la validación de fiebre y tos no se cumple la de perdida de olfato es true y al tener "o" en la validación hace que cumpla la regla*
+
+7. Completa la tabla de verdad para la expresión (A AND NOT B) OR (NOT A AND B) para todos los valores posibles de A y B.
+
+| A | B | Not A | Not B  |
+| --- | --- | --- | --- |
+| false | false | true | true |
+| false | true | true | false |
+| true | false | false | true |
+| true | true | false | false |
+
+8. ¿Cuál es la diferencia entre encadenamiento hacia adelante y hacia atrás? Da un ejemplo de una situación real donde usarías cada uno.
+
+
+
+9. Diseña 3 reglas IF-THEN para un sistema experto que asesore a estudiantes sobre qué lenguaje de programación aprender primero, basándose en su objetivo (desarrollo web, análisis de datos, desarrollo de videojuegos).
+10. Dibuja la red de inferencia correspondiente a las 3 reglas que diseñaste en la pregunta anterior.
+11. ¿Qué problema de diseño podría surgir si dos reglas tienen exactamente las mismas condiciones pero conclusiones diferentes? ¿Cómo lo resolverías?
