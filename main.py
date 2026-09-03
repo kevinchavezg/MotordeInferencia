@@ -118,11 +118,13 @@ def resolver_conflictos(conflict_set):
     Estrategia de resolución de conflictos: mayor confianza.
     Si hay empate, preferir la regla con más condiciones (más específica).
     """
-    if not conflict_set:
-        return None
-    return max(
+    #if not conflict_set:
+    #    return None
+    #return max(
+    return sorted(
         conflict_set,
-        key=lambda r: (r['confianza'], len(r['condiciones']))
+        key=lambda r: (r['confianza'], len(r['condiciones'])),
+        reverse=True
     )
 
 
@@ -149,13 +151,13 @@ def inferir(base_conocimiento, hechos):
     print()
 
     regla = resolver_conflictos(conflict_set)
-
-    print('  DIAGNÓSTICO')
-    print('  ───────────────────────────────────────────────────')
-    print(f'  Regla aplicada: {regla["id"]} — {regla["descripcion"]}')
-    print(f'  Recomendación:  {regla["conclusion"]}')
-    print(f'  Confianza:      {regla["confianza"] * 100:.0f}%')
-    print()
+    for i, regla in enumerate(regla):
+        print('  DIAGNÓSTICO')
+        print('  ───────────────────────────────────────────────────')
+        print(f'  Regla aplicada: {regla["id"]} — {regla["descripcion"]}')
+        print(f'  Recomendación:  {regla["conclusion"]}')
+        print(f'  Confianza:      {regla["confianza"] * 100:.0f}%')
+        print()
 
     # COMPONENTE 4: INTERFAZ DE EXPLICACIÓN
     print('  TRAZABILIDAD DEL RAZONAMIENTO')

@@ -16,6 +16,10 @@ Función: `equiparar(base_conocimiento, hechos)`
 
 La función equiparar, realiza la validación de las condiciones de la base de hechos, y retorna el id de la donde los sintomas concuerden.
 
+Función: `resolver_conflictos(conflict_set)`
+
+La funcion valida el grado de confianza de cada regla para mostrar la que este mas acorde.
+
 ![Prueba modelo de Inferencia](./media/image2.png)
 
 ## Justificación de desafios implementados
@@ -62,6 +66,24 @@ En base a las reglas añadidas se realizan las pruebas manuales para evaluar el 
 
 ![Prueba reglas](./media/image.png)
 
+___
+
+**Nivel 2**
+
+```python
+    #if not conflict_set:
+    #    return None
+    #return max(
+    return sorted(
+        conflict_set,
+        key=lambda r: (r['confianza'], len(r['condiciones'])),
+        reverse=True
+    )
+```
+Se cambia el codigo de la funcion para validacion de resolver conflictos para que muestre todas las posibles en orden de confianza.
+Adicional se realiza un bucle en la funcion en inferir para imprimir en terminal cada una de las reglas en cumplimiento.
+
+![Prueba reglas](./media/image3.png)
 ___
 
 <!-- Lista ordenada -->
