@@ -100,8 +100,24 @@ ___
 
 8. ¿Cuál es la diferencia entre encadenamiento hacia adelante y hacia atrás? Da un ejemplo de una situación real donde usarías cada uno.
 
-
+*Hacia delante se desarrolla de los hechos conocidos hacia la conclusión, y hacia atras desde la meta buscando los hechos que lo respaldan.
+En base a este taller, se ingresan los sintomas para descubrir el diagnostico, ejemplo de hacia delatente.
+Un ejemplo de hacia atras seria la aprobacion de un credito bancario, se requiere aprobar un cliente y se cumple al evaluar las diferentes validaciones que debe cumplir.*
 
 9. Diseña 3 reglas IF-THEN para un sistema experto que asesore a estudiantes sobre qué lenguaje de programación aprender primero, basándose en su objetivo (desarrollo web, análisis de datos, desarrollo de videojuegos).
+
+*if objetivo = "desarrollo_web" then recomendacion = "JavaScript"
+if objetivo = "analisis_datos then recomendacion= "Python"
+if objetivo = "desarrollo_videojuegos then recomendar = "C#"*
+
 10. Dibuja la red de inferencia correspondiente a las 3 reglas que diseñaste en la pregunta anterior.
+
+|Objetivo | Regla | Recomendación |
+| --- | --- | --- |
+| desarrollo_web | R01 | JavaScript |
+| analisis_datos | R02 | Python |
+| desarrollo_videojuegos | R03 | C# |
+
 11. ¿Qué problema de diseño podría surgir si dos reglas tienen exactamente las mismas condiciones pero conclusiones diferentes? ¿Cómo lo resolverías?
+
+*Se deberian de añadir mas condiciones a una o ambas reglas para que sea mas especifica la desición.*
